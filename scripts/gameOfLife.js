@@ -3,8 +3,6 @@ import { create2DArray, initArray } from "./util.js";
 var NUMROWS;
 var NUMCOLUMNS;
 
-
-
 let currentGeneration = 0;
 let Generations = [];
 
@@ -50,37 +48,21 @@ export const reset = () => {
 
 const countNeighbours = (x, y) => {
     let neighbors = 0;
-    let arr = Generations[currentGeneration];
   
-    if (x + 1 < arr.length) {
-      if (arr[x + 1][y] == 1) neighbors++;
-  
-      if (y + 1 < arr[x].length) 
-        if (arr[x + 1][y + 1] == 1) neighbors++;
-    
-      if (y - 1 >= 0) 
-        if (arr[x + 1][y - 1] == 1) neighbors++;
-      
-    }
-  
-    if (x - 1 >= 0) {
-      if (arr[x - 1][y] == 1) neighbors++;
-  
-      if (y + 1 < arr[x].length) 
-        if (arr[x - 1][y + 1] == 1) neighbors++;
-  
-      if (y - 1 >= 0) 
-        if (arr[x - 1][y - 1] == 1) neighbors++;
-    }
-  
-    if (y + 1 < arr[x].length) 
-        if (arr[x][y + 1] == 1) neighbors++;
-  
-    if (y - 1 >= 0)  
-        if (arr[x][y - 1] == 1) neighbors++;
-  
+    neighbors += check(x + 1, y)
+    neighbors += check(x - 1, y)
+    neighbors += check(x, y + 1)
+    neighbors += check(x, y - 1)
+    neighbors += check(x + 1, y + 1)
+    neighbors += check(x + 1, y - 1)
+    neighbors += check(x - 1, y + 1)
+    neighbors += check(x - 1, y - 1)
+
     return neighbors;
   };
+
+  const check = (x, y) => x < 0  || y < 0  || x >= current.length || y >= current[0].length ? 0 : current[x][y]
+    
   
   export const startGameOfLife = (r, c) => {
     NUMROWS = r;

@@ -4,21 +4,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <link rel="stylesheet" href="style.css"> -->
   <title>Game Of Life</title>
-  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="style/style.css">
+  <script
+  src="https://kit.fontawesome.com/67b2a04d4b.js"
+  crossorigin="anonymous"
+></script>
 </head>
 <body>
-  <!-- <div class="container"> -->
-    <header>
-      <h1>Welcome to the Game of Life 🦠🦠</h1>
-    </header>
-    <main>
-    </main>
-    <input type="button" class="nextButton" value="Next">
-    <input type="button" class="prevButton" value="Prev">
-    <input type="button" class="clearButton" value="Clear">
-  <!-- </div> -->
+  <div class="container">
+    <div id="header">
+      <h1>Game of Life 🦠🦠</h1>
+    </div>
+      <div class="table-wrapper">
+      </div>
+    <div class="controls">
+      <div class="control"  id="prevButton"><i class="fa fa-backward"></i></div>
+      <div class="control" id="nextButton"><i class="fa fa-forward"></i></div>
+      <div class="control"  id="clearButton"><i class="fas fa-redo"></i></div>
+      <div class="control"  id="startButton"><i class="fa fa-play" id="playPauseIcon"></i></div>
+    </div>
+
+  </div>
   <script src="./scripts/main.js" type="module"></script>
 </body>
 

@@ -11,14 +11,14 @@ const createGrid = (rows, columns, cellsize, cellspace) => {
       let td = document.createElement("TD");
       td.style.height = cellsize+'px';
       td.style.width = cellsize+'px';
-      td.style.border = '1px solid black';
+      // td.style.border = '1px solid black';
       td.style.cursor = 'pointer';
       td.x = x;
       td.y = y;
       tr.appendChild(td);
     }
   }
-  document.querySelector('main').appendChild(table);
+  document.querySelector('.table-wrapper').appendChild(table);
   return table;
 }
 
