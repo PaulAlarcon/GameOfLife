@@ -1,5 +1,5 @@
 import { createGrid } from "./util.js";
-import {startGameOfLife, current, reset, prevGeneration, nextGeneration} from "./gameOfLife.js"
+import {startGameOfLife, current, reset, prevGeneration, nextGeneration, currentGeneration, totalGenerations } from "./gameOfLife.js"
 
 
 const CELLSIZE = 20;
@@ -39,37 +39,43 @@ const repaint = () => {
     }
 };
 
+const showStats = () => {
+  document.querySelector("#currentStep").innerHTML = currentGeneration;
+  document.querySelector("#totalStep").innerHTML = totalGenerations;
+}
+
 document.querySelector("#nextButton").addEventListener("click", () => {
   nextGeneration();
   repaint();
+  showStats();
 });
 
 document.querySelector("#prevButton").addEventListener("click", () => {
   prevGeneration();
   repaint();
+  showStats();
 });
 
 document.querySelector("#clearButton").addEventListener("click", () => {
   reset();
  repaint();
+ showStats();
 });
 
 let interval;
-// document.querySelector('#startButton').addEventListener('click', () => {
-//   interval = setInterval(()=>{
-//     nextGeneration();
-//     repaint();
-//   }, 1000)
-// })
+
+
+const render = () => {
+  nextGeneration();
+  repaint();
+  showStats();
+}
 
 const play = () => {
   if(!running) {
-     interval = setInterval(()=>{
-    nextGeneration();
-    repaint();
-  }, 1000)
     togglePlayPause();
     running = !running;
+     interval = setInterval(render, 1000);
   }
 }
 
@@ -90,3 +96,4 @@ const togglePlayPause = () => {
 document.querySelector('#startButton').addEventListener('click', () => {
   (!running) ? play() : pause();
 })
+

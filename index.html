@@ -6,27 +6,86 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Game Of Life</title>
   <link rel="stylesheet" href="style/style.css">
-  <script
-  src="https://kit.fontawesome.com/67b2a04d4b.js"
-  crossorigin="anonymous"
-></script>
+  <script src="https://kit.fontawesome.com/67b2a04d4b.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet"> 
 </head>
+
 <body>
   <div class="container">
     <div id="header">
-      <h1>Game of Life 🦠🦠</h1>
+      <h1>Game of Life</h1>
+      <div id="helpButton"><i class="fas fa-question-circle"></i></div>
     </div>
-      <div class="table-wrapper">
-      </div>
+    <div class="table-wrapper">
+    </div>
     <div class="controls">
-      <div class="control"  id="prevButton"><i class="fa fa-backward"></i></div>
+      <div class="control" id="prevButton"><i class="fa fa-backward"></i></div>
       <div class="control" id="nextButton"><i class="fa fa-forward"></i></div>
-      <div class="control"  id="clearButton"><i class="fas fa-redo"></i></div>
-      <div class="control"  id="startButton"><i class="fa fa-play" id="playPauseIcon"></i></div>
+      <div class="control" id="clearButton"><i class="fas fa-redo"></i></div>
+      <div class="control" id="startButton"><i class="fa fa-play" id="playPauseIcon"></i></div>
+        <div class="control" >
+          <span>Current :</span>
+          <span id="currentStep">0</span>
+        </div>
+        <div class="control" id="numberSteps">
+          <span>Total : </span>
+          <br>
+          <span id="totalStep">0</span>
+          <br>
+      </div>
     </div>
-
   </div>
+
+
+  <div class="myModal">
+    <div class="modal-content">
+      <div id="introduction">
+        <h1>Welcome to the Game Of Life</h1>
+        <br>
+        <p>Ever since I found out about Conway's Game Of Life, I was facinated
+          by all the different conbinations it can produce, so I decided to create my own implementation. Enjoy 
+        </p>
+      </div>
+      <br>
+      <div id="rules">
+        <h2>The Rules</h2>
+        <h3>1. Underpopulation</h3>
+        <p>
+          A living cell with less than 2 living neighbours dies.
+        </p>
+        <h3>2. Survives</h3>
+        <p>
+          A living cell with 3 living neighbours survives.
+        </p>
+        <h3>3. Overpopulation</h3>
+        <p>
+          A living cell with more than 3 living neighbours dies.
+        </p>
+        <h3>4. Reproduction</h3>
+        <p>
+          A dead cell with three living neighbours becomes alive
+        </p>
+      </div>
+      <br>
+      <div id="buttons">
+        <button id="close" class="btn-1 ">
+          Done
+        </button>
+        <a class="btn-1 " href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">
+          <div>
+            Learn More
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+
   <script src="./scripts/main.js" type="module"></script>
+  <script src="./scripts/modal.js"></script>
 </body>
 
 </html>

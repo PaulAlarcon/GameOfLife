@@ -3,15 +3,18 @@ import { create2DArray, initArray } from "./util.js";
 var NUMROWS;
 var NUMCOLUMNS;
 
-let currentGeneration = 0;
+export let currentGeneration = 0;
+export let totalGenerations = -1;
+export let current;
 let Generations = [];
 
-const newGeneration = () => initArray(create2DArray(NUMROWS, NUMCOLUMNS)) ;
+const newGeneration = () => {
+ totalGenerations++;
+  return initArray(create2DArray(NUMROWS, NUMCOLUMNS))
+};
 
-export let current;
 
 export const nextGeneration = () => {
-console.log(current);
   Generations.push(newGeneration());
   for (let i = 0; i < Generations[currentGeneration].length; i++) {
     for (let j = 0; j < Generations[currentGeneration][0].length; j++) {
@@ -27,7 +30,6 @@ console.log(current);
     }
   }
   current = Generations[++currentGeneration];
-  console.log(current);
 };
 
 export const prevGeneration = () => {
@@ -40,33 +42,34 @@ export const prevGeneration = () => {
 export const reset = () => {
   Generations = [];
   currentGeneration = 0;
+  totalGenerations = -1;
   Generations.push(newGeneration());
   current = Generations[currentGeneration];
-
-  console.log(current);
 };
 
 const countNeighbours = (x, y) => {
-    let neighbors = 0;
-  
-    neighbors += check(x + 1, y)
-    neighbors += check(x - 1, y)
-    neighbors += check(x, y + 1)
-    neighbors += check(x, y - 1)
-    neighbors += check(x + 1, y + 1)
-    neighbors += check(x + 1, y - 1)
-    neighbors += check(x - 1, y + 1)
-    neighbors += check(x - 1, y - 1)
+  let neighbors = 0;
 
-    return neighbors;
-  };
+  neighbors += check(x + 1, y);
+  neighbors += check(x - 1, y);
+  neighbors += check(x, y + 1);
+  neighbors += check(x, y - 1);
+  neighbors += check(x + 1, y + 1);
+  neighbors += check(x + 1, y - 1);
+  neighbors += check(x - 1, y + 1);
+  neighbors += check(x - 1, y - 1);
 
-  const check = (x, y) => x < 0  || y < 0  || x >= current.length || y >= current[0].length ? 0 : current[x][y]
-    
-  
-  export const startGameOfLife = (r, c) => {
-    NUMROWS = r;
-    NUMCOLUMNS = c;
-    Generations.push(newGeneration());
-    current = Generations[currentGeneration];
-}
+  return neighbors;
+};
+
+const check = (x, y) =>
+  x < 0 || y < 0 || x >= current.length || y >= current[0].length
+    ? 0
+    : current[x][y];
+
+export const startGameOfLife = (r, c) => {
+  NUMROWS = r;
+  NUMCOLUMNS = c;
+  Generations.push(newGeneration());
+  current = Generations[currentGeneration];
+};
