@@ -1,7 +1,8 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
@@ -13,36 +14,55 @@ body {
 .container {
   height: 100%;
   background-color: #056674;
-  box-shadow: -2px 3px 30px 15px rgb(36, 31, 31);
+  -webkit-box-shadow: -2px 3px 30px 15px #241f1f;
+          box-shadow: -2px 3px 30px 15px #241f1f;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 #header {
   color: white;
   height: 10%;
-  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-#header h1,
-#header #helpButton {
-  display: inline;
+#header #title {
+  width: 80%;
+  height: 100%;
+  margin-left: 10%;
 }
 
-#header h1 {
+#header #title h1 {
   font-family: "Orbitron", sans-serif;
   text-transform: uppercase;
-  font-weight: 800;
-  letter-spacing: 0.8em;
-  height: 3.5rem;
-  line-height: 3.5rem;
-  white-space: nowrap;
+  font-size: 3vmax;
+  letter-spacing: .1em;
 }
 
 #header #helpButton {
+  height: 3.5rem;
+  width: 10%;
+  height: 100%;
   font-size: 3vmax;
-  float: right;
-  padding-right: 5%;
+}
+
+#header #title, #header #helpButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #header #helpButton .fa-question-circle:hover,
@@ -51,8 +71,8 @@ body {
 .modal-content #close:focus,
 .modal-content a:hover,
 .modal-content a:focus {
-  webkit-box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
-  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  -webkit-box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+          box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
   -webkit-transform: translateY(-0.2em);
   transform: translateY(-0.2em);
   cursor: pointer;
@@ -70,28 +90,43 @@ table td {
 }
 
 .controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   margin: 0 10%;
   margin-top: 2%;
   height: 15%;
 }
 
 .display-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .display {
   min-width: 40%;
   background-color: rgba(2, 16, 26, 0.4);
   color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding: 5px;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   margin: 0 10px;
 }
 
@@ -101,13 +136,20 @@ table td {
   background-color: rgba(2, 16, 26, 0.3);
   color: white;
   width: 100%;
-  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 2vmax;
-  display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   font-family: "Orbitron", sans-serif;
 }
 
@@ -120,8 +162,8 @@ table td {
   left: 0;
   padding: 5%;
   background-color: rgba(0, 0, 0, 0.5);
-  transition: all .6s;
-
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
 }
 
 .modal-content {
@@ -136,7 +178,8 @@ table td {
   line-height: 2em;
   font-size: 3vmin;
   overflow: auto;
-  transition: all .6s;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
 }
 
 .modal-content #rules {
@@ -147,7 +190,8 @@ table td {
   background-color: white;
   color: black;
   border-radius: 25px;
-  box-shadow: 1px 1px 1px 1px rgb(119, 111, 111);
+  -webkit-box-shadow: 1px 1px 1px 1px #776f6f;
+          box-shadow: 1px 1px 1px 1px #776f6f;
 }
 
 #introduction h1 {
@@ -157,25 +201,30 @@ table td {
 }
 
 .modal-content #buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   margin-bottom: 5%;
 }
 
 .btn-1 {
   font-family: "Montserrat", sans-serif;
-  background: #ff4b5c;
-  color: black;
+  background: #c61425;
+  color: white;
   cursor: pointer;
   font-size: 1.5em;
   padding: 1.5rem;
   border: 1px solid black;
+  -webkit-transition: all 0.5s;
   transition: all 0.5s;
   border-radius: 10px;
   width: auto;
   position: relative;
   text-decoration: none;
 }
+
 .btn-1::after {
   content: "\203A";
   font-weight: 400;
@@ -186,14 +235,63 @@ table td {
   bottom: 0;
   opacity: 0;
 }
+
 .btn-1:hover {
-  background: #ff4b5c;
+  background: #e11f33;
+  -webkit-transition: all 0.5s;
   transition: all 0.5s;
   border-radius: 10px;
-  box-shadow: 0px 6px 15px #00f 61;
+  -webkit-box-shadow: 0px 6px 15px #00f 61;
+          box-shadow: 0px 6px 15px #00f 61;
   padding: 1.5rem 3.5rem 1.5rem 1.5rem;
 }
+
 .btn-1:hover::after {
   opacity: 1;
+  -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
+
+@media only screen and (max-width: 768px) {
+  body {
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .container {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    overflow: hidden;
+  }
+  #header {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #header h1 {
+    letter-spacing: 0;
+    font-size: 4vmax;
+  }
+  #header #helpButton {
+    font-size: 4vmax;
+  }
+  .myModal {
+    padding: 0;
+  }
+  .myModal .modal-content {
+    width: 95%;
+    font-size: 2.5vmax;
+  }
+  .controls {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    width: auto;
+  }
+  .controls #currentSteps {
+    font-size: 3.2vmin;
+  }
+}
+/*# sourceMappingURL=style.css.map */
